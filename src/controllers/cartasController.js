@@ -18,7 +18,7 @@ const getById = (req, res) => {
     const carta = cartas.find(c => c.id === id);
 
     if (carta) {
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             carta: carta
         })
