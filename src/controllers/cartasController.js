@@ -1,6 +1,9 @@
 import dados from "../models/dados.js";
 const { cartas } = dados;
 
+// GET
+
+// GetAll
 const getAllCartas = (req, res) => {
     res.status(200).json({
         total: cartas.length,
@@ -8,6 +11,7 @@ const getAllCartas = (req, res) => {
     })
 }
 
+// GetById
 const getById = (req, res) => {
     let id = parseInt(req.params.id);
 
@@ -25,6 +29,8 @@ const getById = (req, res) => {
         message: "carta nao encontrada"
     })
 }
+
+// POST
 
 const createCarta = (req, res) => {
     const { nome, elixir, raridade, tipo, foto, dataUpdate, evolucao } = req.body;
@@ -98,6 +104,8 @@ const createCarta = (req, res) => {
     })
 }
 
+// DELETE 
+
 const deleteCarta = (req, res) => {
     let id = parseInt(req.params.id);
     const cartaParaRemover = cartas.find(c => c.id === id);
@@ -116,6 +124,8 @@ const deleteCarta = (req, res) => {
         cartaRemovida: cartaParaRemover
     })
 }
+
+// PUT
 
 const updateCarta = (req, res) => {
     const id = parseInt(req.params.id);
